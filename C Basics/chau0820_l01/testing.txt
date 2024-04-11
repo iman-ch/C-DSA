@@ -1,0 +1,23 @@
+/**
+ * -------------------------------------
+ * @file  testing.txt
+ * Lab 1 Test Results File
+ * -------------------------------------
+ * @author name, id, email
+ *
+ * @version 2024-01-05
+ *
+ * -------------------------------------
+ */
+Results:
+
+-------------------------------------
+No command line parameters
+
+
+-------------------------------------
+A command line with parameters A 1 "some strings"
+
+
+-------------------------------------
+A command line with parameters B 2 some strings

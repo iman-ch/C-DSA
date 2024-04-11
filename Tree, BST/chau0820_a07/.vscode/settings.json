@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "myrecord_bst.h": "c",
+        "typeinfo": "c"
+    }
+}
