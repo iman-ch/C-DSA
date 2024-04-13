@@ -35,7 +35,7 @@ BSTNODE *insert(BSTNODE *root, int key){
 	if (key < prev->key) 
 		prev->left = node;
 	if (key > prev->key)
-		prev->right = key;
+		prev->right = node;
 	return prev;
 }
 
