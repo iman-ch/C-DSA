@@ -1,0 +1,14 @@
+typedef struct TPROPS{
+	int height;
+	int leafcount;
+} TPROPS
+
+TPROPS tree_property(TNODE *root){
+	if (!root) return NULL;
+	TPROPS r = {0,0};
+	TREEPROPS lp = tree_property(root->left);
+	TREEPROPS rp = tree_property(root->right);
+	r.height = (lp.height > rp.height ? lp.height : rp.height) + 1;
+	r.leafcount = (root->left == NULL && root->right == NULL ? 1 : rp.height + lp.height);
+	return r;
+}

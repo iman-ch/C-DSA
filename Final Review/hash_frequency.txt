@@ -1,0 +1,25 @@
+int hash(char *key) {
+    unsigned long hash = 0;
+    while (*key) {
+        hash = (hash * 31 + *key++) % TABLE_SIZE;  // Simple hash, modulus table size
+    }
+    return hash;
+}
+
+void count_word(HASHTABLE *ht, char *word) {
+    int index = hash(word);
+    HASHNODE *node = ht->buckets[index];
+    while (node) {
+        if (strcmp(node->key, word) == 0) {
+            node->count++;  // Increment count if word is found
+            return;
+        }
+        node = node->next;
+    }
+
+    HASHNODE *newNode = malloc(sizeof(HASHNODE));
+    strcpy(newNode->key, word);
+    newNode->count = 1;
+    newNode->next = ht->buckets[index];
+    ht->buckets[index] = newNode;
+}

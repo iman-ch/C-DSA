@@ -1,0 +1,41 @@
+Insert in Linked List
+
+void insert_end(SLL *source, SLLNODE *node){
+	if(source->front == NULL)
+		source->front = node;
+		source->rear = source->front;
+	else 
+		SLLNODE *curr = source->front;
+		while(curr != NULL)
+			curr = curr->next;
+		curr->next = node;
+		source->rear = node;
+	source->count++;
+
+Insert in BST
+BSTNODE *insert(BSTNODE *root, int key){
+	BSTNODE node = (*BSTNODE)malloc(sizeof(BSTNODE));
+	node->key = key;
+	node->left = NULL;
+	node->right = NULL;
+	
+	BSTNODE *curr = root;
+	BSTNODE *prev = NULL;
+
+	while(curr != NULL) {
+		prev = curr;
+		if (key < curr->key)
+			curr = curr->left;
+		if (key > curr->key)
+			curr = curr->right;
+	}
+	
+	if (prev == NULL)
+		prev = node;
+	if (key < prev->key) 
+		prev->left = node;
+	if (key > prev->key)
+		prev->right = key;
+	return prev;
+}
+

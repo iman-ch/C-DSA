@@ -1,0 +1,23 @@
+void heapifydown(int *HP, int n, int i){
+	int val = HP[i];
+	int ci = 2*i+1;
+	while(ci<=n){
+		if(ci<n && HP[ci] >= HP[ci+1]) ci++;
+		if(HP[ci] > val) break;
+		else {
+			HP[i] = HP[ci];
+			i = ci;
+			ci = 2*i+1;
+		}
+	}
+	HP[i] = val;
+}
+
+void delete(*HP){
+	int n = 0;
+	HP[0] = HP[n-1];
+	n--;
+	heapifydown(HP, n, 0);
+	return n;
+}
+			

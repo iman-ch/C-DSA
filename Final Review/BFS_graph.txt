@@ -1,0 +1,32 @@
+GNODE *BFS(GRAPH *g, int start, int key){
+	int status[g->size];
+	int i = 0;
+	for(i; i < g->size; i++) status[i]=0;
+	QUEUE queue = {0};
+	GNODE gnp = NULL;
+	ADJNODE p = NULL;
+	enqueue(&queue, g->nodes[start]);
+	status[start]=1;
+	
+	while(queue.front){
+		gnp = dequeue(&queue);
+		if(gnp->data == key){
+			clean(&queue);
+			return gnp;
+		}
+		p = gnp->neighbour;
+		while(p){
+			i = p->nid;
+			if (status[p->vertex] == 0){
+				enqueue(&queue, g->nodes[i]);
+				p = p->next;
+			}
+		}
+	}
+	clean(&queue);
+	return NULL;
+}
+			
+	
+	
+	

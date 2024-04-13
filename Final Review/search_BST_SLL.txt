@@ -1,0 +1,21 @@
+Search BST:
+
+BSTNODE *search(BSTNODE *root, int key){
+	BSTNODE *curr = root;
+	while(curr != NULL && curr->value != key){
+		if (key < curr->value) curr = curr->left;
+		if (key > curr->value) curr = curr->right;
+	}
+	return curr;
+}
+
+
+Search SLL
+
+SLLNODE *search(SLL *source, , int key){
+	SLLNODE *curr = source->front;
+	while(curr != NULL && curr->value != key){
+		curr = curr->next;
+	}
+	return curr;
+

@@ -1,0 +1,15 @@
+void displayBackwards(SLLNODE *front){
+	STACK stack = {0};
+	stack.top = -1;
+	SLLNODE *curr = front;
+	while(curr != NULL){
+		push(&stack, curr->value);
+		curr = curr->next;
+	}
+	while (stack.top != -1){
+		printf("%d ", pop(&stack));
+	}
+	print("\n");
+}
+
+

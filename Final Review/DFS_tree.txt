@@ -1,0 +1,18 @@
+TNODE *DFS(TNODE *root, int key){
+	STACK stack = {0};
+	TNODE *p = NULL, *r = NULL;
+	push(&stack, root);
+	if (root){
+		p = peek(&stack);
+		while(stack->top){
+			if(p->data == key){
+				r = p;
+				break;
+			}
+		pop(&stack);
+		if(p->right) push(&stack, p->right);
+		if(p->left) push(&stack, p->left);
+		}
+	clean_stack(&stack);
+	return r;
+}

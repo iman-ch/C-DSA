@@ -1,0 +1,20 @@
+void heapify_up(int *HP, int i){
+	int val, pi = HP[i];
+	while(i){
+		pi = (i-1)/2;
+		if (HP[pi]<=val) break;
+		else {
+			HP[i] = HP[pi];
+			i=pi;
+		}
+	}
+HP[i]=val;
+}
+
+int insert(*HP, int n, int value){
+	HP[n] = value;
+	heapify_up(HP, n);
+	n++;
+	return n;
+}
+
